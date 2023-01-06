@@ -4,6 +4,7 @@ var secondsLeft = 120;
 
 // variables for event listeners
 var startBtn = document.getElementById('start-button');
+var startMsg = document.getElementById('starting-page');
 
 //variables for questions
 // questionContainer and question are same element targeted diff ways*****
@@ -30,6 +31,7 @@ var submitBtn = document.getElementById('submit-hs');
 
 container.style.display = 'none';
 scoreContainer.style.display = 'none';
+
 
 //variables for question info
 const myQuestions = [
@@ -66,7 +68,7 @@ var score = 0;
 function countdown(){
     //clicking start button starts
     startBtn.addEventListener('click', () => {
-    startBtn.style.display = 'none';
+      startMsg.style.display = 'none';    
     container.style.display = 'block';
     var timeInterval = window.setInterval(function () {
         secondsLeft--;
