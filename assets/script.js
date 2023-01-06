@@ -7,19 +7,29 @@ var startBtn = document.getElementById('start-button');
 
 //variables for questions
 // questionContainer and question are same element targeted diff ways*****
-// container if for questions and answers
+// variables for containers
 var container = document.querySelector('.container');
 var questionContainer = document.querySelector('.question-container');
 var answerContainer = document.querySelector('.answer-container');
+
+//variables for individual elements
+var allOptions = document.querySelectorAll('.option');
 var question = document.getElementById('question');
 var answerOne = document.getElementById('answer1');
 var answerTwo = document.getElementById('answer2');
 var answerThree = document.getElementById('answer3');
 var answerFour = document.getElementById('answer4');
-var answerStatus = document.createElement('h4');
+var answerStatus = document.getElementById('answer-status');
+var score = document.getElementById('score');
+
+//variables for high score
+var scoreContainer = document.querySelector('.high-scores');
+var userInitials = document.getElementById('highscore');
+var submitBtn = document.getElementById('submit-hs');
 
 
 container.style.display = 'none';
+scoreContainer.style.display = 'none';
 
 //variables for question info
 const myQuestions = [
@@ -69,7 +79,7 @@ function countdown(){
             timeEl.textContent = 'TIME\'S UP!!';
         }
     }, 1000);
-})
+});
 
    //for(var i=0; i < myQuestions.length; i++){
     question.textContent = myQuestions[0].question;
@@ -85,7 +95,35 @@ function countdown(){
     container.append(answerFour);
 
     
+    
+    answerThree.addEventListener('click', () => {
+    var answerStatus = document.getElementById('answer-status');
+        answerStatus.textContent = 'Correct!';
+        container.append(answerStatus);
+        
+    });
 
+
+
+    
+
+    answerOne.addEventListener('click', () => {
+      answerStatus.textContent = 'Incorrect!';
+      container.append(answerStatus);
+      secondsLeft - 10;
+    });
+
+    //answerTwo.addEventListener('click', () => {
+      //answerStatus.textContent = 'Incorrect!';
+      //container.append(answerStatus);
+      //secondsLeft - 10;
+    //});
+
+    //answerFour.addEventListener('click', () => {
+     // answerStatus.textContent = 'Incorrect!';
+      //container.append(answerStatus);
+      //secondsLeft - 10;
+    //})
   
     //if(response === myQuestions.question1.answer) {
       //  score++;
@@ -93,6 +131,10 @@ function countdown(){
       //  secondsLeft - 10;
     //}
 };
+
+function highScore() {
+
+}
 
 
 
