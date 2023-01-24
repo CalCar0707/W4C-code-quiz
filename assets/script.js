@@ -61,8 +61,9 @@ const myQuestions = [
         answer: '2. function myFunction()'
     }];
 
-var userInput = '';
-var score = 0;
+//var userInput = '';
+//var score = 0;
+
 
 
 //quiz countdown- WORKING
@@ -82,60 +83,69 @@ function startQuiz(){
             timeEl.textContent = 'TIME\'S UP!!';
         }
     }, 1000);
-    nextQuestion();
-})
-};
 
-answerOne
 
-answerTwo
+    var question = document.getElementById('question');
+    var answerOne = document.getElementById('answer1');
+    var answerTwo = document.getElementById('answer2');
+    var answerThree = document.getElementById('answer3');
+    var answerFour = document.getElementById('answer4');
 
-answerThree
+    question.textContent = myQuestions[0].question;
+    answerOne.textContent = myQuestions[0].options[0];
+    answerTwo.textContent = myQuestions[0].options[1];
+    answerThree.textContent = myQuestions[0].options[2];
+    answerFour.textContent = myQuestions[0].options[3];
 
-answerFour
+    answerOne.onclick = () => {
+        var answerStatus = document.getElementById('answer-status');
+        answerStatus.textContent = 'Incorrect!';
+        nextQuestion();
+
+    };
+
+    answerTwo.addEventListener('click', () => {
+        answerStatus.textContent = 'Incorrect!';
+        nextQuestion();
+    });
+
+    answerThree.addEventListener('click', () => {
+        var score = document.getElementById('score');
+        answerStatus.textContent = 'Correct!';
+        score.textContent = 'Score: ' + 1;
+        nextQuestion();
+    });
+
+    answerFour.addEventListener('click', () => {
+        answerStatus.textContent = 'Incorrect!';
+        nextQuestion();
+    })
+}
+    )};
+
 
 //function quizQuestions(){
 
 //}
 
 function nextQuestion(){
-   // for (var i = 0; i < myQuestions.length; i++) {
+   for (var i = 0; i < myQuestions.length; i++) {
         var question = document.getElementById('question');
         var answerOne = document.getElementById('answer1');
         var answerTwo = document.getElementById('answer2');
         var answerThree = document.getElementById('answer3');
         var answerFour = document.getElementById('answer4');
 
-        question.textContent = myQuestions[0].question;
-        answerOne.textContent = myQuestions[0].options[0];
-        answerTwo.textContent = myQuestions[0].options[1];
-        answerThree.textContent = myQuestions[0].options[2];
-        answerFour.textContent = myQuestions[0].options[3];
+        question.textContent = myQuestions[i].question;
+        answerOne.textContent = myQuestions[i].options[0];
+        answerTwo.textContent = myQuestions[i].options[1];
+        answerThree.textContent = myQuestions[i].options[2];
+        answerFour.textContent = myQuestions[i].options[3];
 
-        answerOne.onclick = () => {
-            var answerStatus = document.getElementById('answer-status');
-            answerStatus.textContent = 'Incorrect!';
-            
-
-        };
-
-        answerTwo.addEventListener('click', () => {
-            answerStatus.textContent = 'Incorrect!';
-
-        });
-
-        answerThree.addEventListener('click', () => {
-            answerStatus.textContent = 'Correct!';
-
-        });
-
-        answerFour.addEventListener('click', () => {
-            answerStatus.textContent = 'Incorrect!';
-        })
     }
-//}
+};
 
-///myQuestions.forEach( (question) => {
+///myQuestions.forEach( function(question,) => {
     //if (answerOne.addEventListener('click'))
 
 //})
