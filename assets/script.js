@@ -61,11 +61,12 @@ const myQuestions = [
         answer: '2. function myFunction()'
     }];
 
+var userInput = '';
 var score = 0;
 
 
 //quiz countdown- WORKING
-function countdown(){
+function startQuiz(){
     //clicking start button starts
     startBtn.addEventListener('click', () => {
       startMsg.style.display = 'none';    
@@ -81,63 +82,64 @@ function countdown(){
             timeEl.textContent = 'TIME\'S UP!!';
         }
     }, 1000);
-});
-
-   //for(var i=0; i < myQuestions.length; i++){
-    question.textContent = myQuestions[0].question;
-    answerOne.textContent = myQuestions[0].options[0];
-    answerTwo.textContent = myQuestions[0].options[1];
-    answerThree.textContent = myQuestions[0].options[2];
-    answerFour.textContent = myQuestions[0].options[3];
-
-    container.append(question);
-    container.append(answerOne);
-    container.append(answerTwo);
-    container.append(answerThree);
-    container.append(answerFour);
-
-    
-    
-    answerThree.addEventListener('click', () => {
-    var answerStatus = document.getElementById('answer-status');
-        answerStatus.textContent = 'Correct!';
-        container.append(answerStatus);
-        
-    });
-
-
-
-    
-
-    answerOne.addEventListener('click', () => {
-      answerStatus.textContent = 'Incorrect!';
-      container.append(answerStatus);
-      secondsLeft - 10;
-    });
-
-    //answerTwo.addEventListener('click', () => {
-      //answerStatus.textContent = 'Incorrect!';
-      //container.append(answerStatus);
-      //secondsLeft - 10;
-    //});
-
-    //answerFour.addEventListener('click', () => {
-     // answerStatus.textContent = 'Incorrect!';
-      //container.append(answerStatus);
-      //secondsLeft - 10;
-    //})
-  
-    //if(response === myQuestions.question1.answer) {
-      //  score++;
-    //} else {
-      //  secondsLeft - 10;
-    //}
+    nextQuestion();
+})
 };
 
-function highScore() {
+answerOne
 
-}
+answerTwo
+
+answerThree
+
+answerFour
+
+//function quizQuestions(){
+
+//}
+
+function nextQuestion(){
+   // for (var i = 0; i < myQuestions.length; i++) {
+        var question = document.getElementById('question');
+        var answerOne = document.getElementById('answer1');
+        var answerTwo = document.getElementById('answer2');
+        var answerThree = document.getElementById('answer3');
+        var answerFour = document.getElementById('answer4');
+
+        question.textContent = myQuestions[0].question;
+        answerOne.textContent = myQuestions[0].options[0];
+        answerTwo.textContent = myQuestions[0].options[1];
+        answerThree.textContent = myQuestions[0].options[2];
+        answerFour.textContent = myQuestions[0].options[3];
+
+        answerOne.onclick = () => {
+            var answerStatus = document.getElementById('answer-status');
+            answerStatus.textContent = 'Incorrect!';
+            
+
+        };
+
+        answerTwo.addEventListener('click', () => {
+            answerStatus.textContent = 'Incorrect!';
+
+        });
+
+        answerThree.addEventListener('click', () => {
+            answerStatus.textContent = 'Correct!';
+
+        });
+
+        answerFour.addEventListener('click', () => {
+            answerStatus.textContent = 'Incorrect!';
+        })
+    }
+//}
+
+///myQuestions.forEach( (question) => {
+    //if (answerOne.addEventListener('click'))
+
+//})
 
 
 
-countdown();
+startQuiz();
