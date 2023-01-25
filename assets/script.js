@@ -81,6 +81,10 @@ function startQuiz(){
             //insert function here
 
             timeEl.textContent = 'TIME\'S UP!!';
+            //insert high score option here
+            container.style.display = 'none';
+            scoreContainer.style.display = 'block';
+
         }
     }, 1000);
 
