@@ -61,8 +61,8 @@ const myQuestions = [
         answer: '2. function myFunction()'
     }];
 
-//var userInput = '';
-//var score = 0;
+var userInput = '';
+var score = 0;
 
 
 
@@ -72,7 +72,7 @@ function startQuiz(){
     startBtn.addEventListener('click', () => {
       startMsg.style.display = 'none';    
     container.style.display = 'block';
-    var timeInterval = window.setInterval(function () {
+    var timeInterval = window.setInterval( () => {
         secondsLeft--;
         timeEl.textContent = 'Time: ' + secondsLeft;
 
@@ -108,22 +108,27 @@ function startQuiz(){
 
     };
 
-    answerTwo.addEventListener('click', () => {
+    answerTwo.onclick = () => {
+        var answerStatus = document.getElementById('answer-status');
         answerStatus.textContent = 'Incorrect!';
         nextQuestion();
-    });
 
-    answerThree.addEventListener('click', () => {
-        var score = document.getElementById('score');
+    };
+
+    answerThree.onclick = () => {
+        var answerStatus = document.getElementById('answer-status');
         answerStatus.textContent = 'Correct!';
-        score.textContent = 'Score: ' + 1;
         nextQuestion();
-    });
 
-    answerFour.addEventListener('click', () => {
+    };
+
+    answerFour.onclick = () => {
+        var answerStatus = document.getElementById('answer-status');
         answerStatus.textContent = 'Incorrect!';
         nextQuestion();
-    })
+
+    };
+
 }
     )};
 
@@ -139,6 +144,7 @@ function nextQuestion(){
         var answerTwo = document.getElementById('answer2');
         var answerThree = document.getElementById('answer3');
         var answerFour = document.getElementById('answer4');
+        
 
         question.textContent = myQuestions[i].question;
         answerOne.textContent = myQuestions[i].options[0];
@@ -146,8 +152,21 @@ function nextQuestion(){
         answerThree.textContent = myQuestions[i].options[2];
         answerFour.textContent = myQuestions[i].options[3];
 
+        
     }
 };
+
+ function compareAnswer() {
+    if (userInput === myQuestions.answer) {
+        score++;
+        var answerStatus = document.getElementById('answer-status');
+        answerStatus.textContent = 'Correct!';
+    } else {
+        secondsLeft = secondsLeft - 10;
+        var answerStatus = document.getElementById('answer-status');
+        answerStatus.textContent = 'Incorrect!';
+  }
+}
 
 ///myQuestions.forEach( function(question,) => {
     //if (answerOne.addEventListener('click'))
@@ -156,4 +175,10 @@ function nextQuestion(){
 
 
 
+
 startQuiz();
+
+// CREATE FUNCTIONS AND THEN ADD EVENT LISTENER
+// ANSWERoNE.ADDeVENT LISTENER('CLICK', fUNCTION());
+
+//seperate each question into function
