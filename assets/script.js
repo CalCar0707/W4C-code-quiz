@@ -87,25 +87,25 @@ function startQuiz(){
 
         }
     }, 1000);
-    nextQuestion();
-})
+}) 
+questionOne();
 };
 
 
-function nextQuestion() {
+function questionOne() {
     var question = document.getElementById('question');
     var answerOne = document.getElementById('answer1');
     var answerTwo = document.getElementById('answer2');
     var answerThree = document.getElementById('answer3');
     var answerFour = document.getElementById('answer4');
 
-    for (var i = 0; i < myQuestions.length; i++) {
-    question.textContent = myQuestions[i].question;
-    answerOne.textContent = myQuestions[i].options[0];
-    answerTwo.textContent = myQuestions[i].options[1];
-    answerThree.textContent = myQuestions[i].options[2];
-    answerFour.textContent = myQuestions[i].options[3];
-}
+    
+    question.textContent = myQuestions[0].question;
+    answerOne.textContent = myQuestions[0].options[0];
+    answerTwo.textContent = myQuestions[0].options[1];
+    answerThree.textContent = myQuestions[0].options[2];
+    answerFour.textContent = myQuestions[0].options[3];
+
 };
 
 // function checkAnswer() {
@@ -138,26 +138,8 @@ function nextQuestion() {
 //      };
 
 //  };
-     
 
 
-//function quizQuestions(){
-
-//}
-
-
-
-//  function compareAnswer() {
-//     if (userInput === myQuestions.answer) {
-//         score++;
-//         var answerStatus = document.getElementById('answer-status');
-//         answerStatus.textContent = 'Correct!';
-//     } else {
-//         secondsLeft = secondsLeft - 10;
-//         var answerStatus = document.getElementById('answer-status');
-//         answerStatus.textContent = 'Incorrect!';
-//   }
-// }
 
 ///myQuestions.forEach( function(question,) => {
     //if (answerOne.addEventListener('click'))
