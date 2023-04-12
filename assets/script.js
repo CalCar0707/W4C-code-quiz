@@ -106,39 +106,56 @@ function questionOne() {
     answerThree.textContent = myQuestions[0].options[2];
     answerFour.textContent = myQuestions[0].options[3];
 
+    checkAnswer();
 };
 
-// function checkAnswer() {
-//      answerOne.onclick = () => {
-//          var answerStatus = document.getElementById('answer-status');
-//          answerStatus.textContent = 'Incorrect!';
-//          nextQuestion();
+function checkAnswer() {
+     answerOne.onclick = () => {
+         var answerStatus = document.getElementById('answer-status');
+         answerStatus.textContent = 'Incorrect!';
+         nextQuestion();
 
-//      };
+     };
 
-//      answerTwo.onclick = () => {
-//          var answerStatus = document.getElementById('answer-status');
-//          answerStatus.textContent = 'Incorrect!';
-//          nextQuestion();
+     answerTwo.onclick = () => {
+         var answerStatus = document.getElementById('answer-status');
+         answerStatus.textContent = 'Incorrect!';
+         nextQuestion();
 
-//      };
+     };
 
-//      answerThree.onclick = () => {
-//          var answerStatus = document.getElementById('answer-status');
-//          answerStatus.textContent = 'Correct!';
-//          nextQuestion();
+     answerThree.onclick = () => {
+         var answerStatus = document.getElementById('answer-status');
+         answerStatus.textContent = 'Correct!';
+         nextQuestion();
 
-//      };
+     };
 
-//      answerFour.onclick = () => {
-//          var answerStatus = document.getElementById('answer-status');
-//          answerStatus.textContent = 'Incorrect!';
-//          nextQuestion();
+     answerFour.onclick = () => {
+         var answerStatus = document.getElementById('answer-status');
+         answerStatus.textContent = 'Incorrect!';
+         nextQuestion();
 
-//      };
+     };
 
-//  };
+ };
 
+ function nextQuestion() {
+    var question = document.getElementById('question');
+    var answerOne = document.getElementById('answer1');
+    var answerTwo = document.getElementById('answer2');
+    var answerThree = document.getElementById('answer3');
+    var answerFour = document.getElementById('answer4');
+
+    for(var i = 0; i < myQuestions.length; i++) {
+    question.textContent = myQuestions[i].question;
+    answerOne.textContent = myQuestions[i].options[0];
+    answerTwo.textContent = myQuestions[i].options[1];
+    answerThree.textContent = myQuestions[i].options[2];
+    answerFour.textContent = myQuestions[i].options[3];
+    }
+    checkAnswer();
+};
 
 
 ///myQuestions.forEach( function(question,) => {
