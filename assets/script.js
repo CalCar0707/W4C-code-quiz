@@ -32,7 +32,7 @@ var submitBtn = document.getElementById('submit-hs');
 container.style.display = 'none';
 scoreContainer.style.display = 'none';
 
-
+var questionIndex = -1;
 //variables for question info
 const myQuestions = [
     {   
@@ -88,11 +88,12 @@ function startQuiz(){
         }
     }, 1000);
 }) 
-questionOne();
+nextQuestion();
 };
 
 
-function questionOne() {
+function nextQuestion() {
+    questionIndex++;
     var question = document.getElementById('question');
     var answerOne = document.getElementById('answer1');
     var answerTwo = document.getElementById('answer2');
@@ -100,13 +101,15 @@ function questionOne() {
     var answerFour = document.getElementById('answer4');
 
     
-    question.textContent = myQuestions[0].question;
-    answerOne.textContent = myQuestions[0].options[0];
-    answerTwo.textContent = myQuestions[0].options[1];
-    answerThree.textContent = myQuestions[0].options[2];
-    answerFour.textContent = myQuestions[0].options[3];
+    question.textContent = myQuestions[questionIndex].question;
+    answerOne.textContent = myQuestions[questionIndex].options[0];
+    answerTwo.textContent = myQuestions[questionIndex].options[1];
+    answerThree.textContent = myQuestions[questionIndex].options[2];
+    answerFour.textContent = myQuestions[questionIndex].options[3];
 
-    checkAnswer();
+    if(myQuestions.length > questionIndex){
+        checkAnswer()
+    } ;
 };
 
 function checkAnswer() {
@@ -140,22 +143,22 @@ function checkAnswer() {
 
  };
 
- function nextQuestion() {
-    var question = document.getElementById('question');
-    var answerOne = document.getElementById('answer1');
-    var answerTwo = document.getElementById('answer2');
-    var answerThree = document.getElementById('answer3');
-    var answerFour = document.getElementById('answer4');
+//  function nextQuestion() {
+//     var question = document.getElementById('question');
+//     var answerOne = document.getElementById('answer1');
+//     var answerTwo = document.getElementById('answer2');
+//     var answerThree = document.getElementById('answer3');
+//     var answerFour = document.getElementById('answer4');
 
-    for(var i = 0; i < myQuestions.length; i++) {
-    question.textContent = myQuestions[i].question;
-    answerOne.textContent = myQuestions[i].options[0];
-    answerTwo.textContent = myQuestions[i].options[1];
-    answerThree.textContent = myQuestions[i].options[2];
-    answerFour.textContent = myQuestions[i].options[3];
-    }
-    checkAnswer();
-};
+//     for(var i = 0; i < myQuestions.length; i++) {
+//     question.textContent = myQuestions[i].question;
+//     answerOne.textContent = myQuestions[i].options[0];
+//     answerTwo.textContent = myQuestions[i].options[1];
+//     answerThree.textContent = myQuestions[i].options[2];
+//     answerFour.textContent = myQuestions[i].options[3];
+//     }
+//     checkAnswer();
+// };
 
 
 ///myQuestions.forEach( function(question,) => {
@@ -163,7 +166,11 @@ function checkAnswer() {
 
 //})
 
-
+// function gameOver() {
+//     if (secondsLeft === 0) {
+//         answerStatus.textContent = 'GAME OVER!'
+//     } else if ()
+// }
 
 
 startQuiz();
