@@ -1,6 +1,6 @@
 // variable for timer
 var timeEl = document.getElementById('timer');
-var secondsLeft = 120;
+var secondsLeft = 60;
 
 // variables for event listeners
 var startBtn = document.getElementById('start-button');
