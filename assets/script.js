@@ -57,8 +57,8 @@ const myQuestions = [
     },
     {
         question: 'How do you create a function?',
-        options: ['1. function = myFunction()', '2. function myFunction()', '3. myFunction()', '4. function: myFunction()'],
-        answer: '2. function myFunction()'
+        options: ['1. function = myFunction()', '2. myFunction()','3. function myFunction()', '4. function: myFunction()'],
+        answer: '3. function myFunction()'
     }];
 
 var userInput = '';
@@ -112,53 +112,50 @@ function nextQuestion() {
     } ;
 };
 
-function checkAnswer() {
-     answerOne.onclick = () => {
-         var answerStatus = document.getElementById('answer-status');
-         answerStatus.textContent = 'Incorrect!';
-         nextQuestion();
+//keyword this.target.texcontent !== correctanswer
+function checkAnswer(event) {
+    if (this.target.textContent === myQuestions[questionIndex].answer) {
+           score.textContent = score + 10;
+           nextQuestion();
+        } else if (this.target.textContent === myQuestions[questionIndex].answer) {
+           timeEl.textContent = secondsLeft -10;
+           nextQuestion();
+        }
 
-     };
+    //   answerOne.onclick = () => {
+    //       var answerStatus = document.getElementById('answer-status');
+    //       answerStatus.textContent = 'Incorrect!';
+    //       timeEl.textContent = secondsLeft -10;
+    //       nextQuestion();
 
-     answerTwo.onclick = () => {
-         var answerStatus = document.getElementById('answer-status');
-         answerStatus.textContent = 'Incorrect!';
-         nextQuestion();
+    //   };
 
-     };
+    //   answerTwo.onclick = () => {
+    //       var answerStatus = document.getElementById('answer-status');
+    //       answerStatus.textContent = 'Incorrect!';
+    //       timeEl.textContent = secondsLeft -10;
+    //       nextQuestion();
 
-     answerThree.onclick = () => {
-         var answerStatus = document.getElementById('answer-status');
-         answerStatus.textContent = 'Correct!';
-         nextQuestion();
+    //   };
 
-     };
+    //   answerThree.onclick = () => {
+    //       var answerStatus = document.getElementById('answer-status');
+    //       answerStatus.textContent = 'Correct!';
+    //       score.textContent = score + 10;
+    //       nextQuestion();
 
-     answerFour.onclick = () => {
-         var answerStatus = document.getElementById('answer-status');
-         answerStatus.textContent = 'Incorrect!';
-         nextQuestion();
+    //   };
 
-     };
+    //   answerFour.onclick = () => {
+    //       var answerStatus = document.getElementById('answer-status');
+    //       answerStatus.textContent = 'Incorrect!';
+    //       timeEl.textContent = secondsLeft -10;
+    //       nextQuestion();
 
- };
+    //  };
+    };
+ 
 
-//  function nextQuestion() {
-//     var question = document.getElementById('question');
-//     var answerOne = document.getElementById('answer1');
-//     var answerTwo = document.getElementById('answer2');
-//     var answerThree = document.getElementById('answer3');
-//     var answerFour = document.getElementById('answer4');
-
-//     for(var i = 0; i < myQuestions.length; i++) {
-//     question.textContent = myQuestions[i].question;
-//     answerOne.textContent = myQuestions[i].options[0];
-//     answerTwo.textContent = myQuestions[i].options[1];
-//     answerThree.textContent = myQuestions[i].options[2];
-//     answerFour.textContent = myQuestions[i].options[3];
-//     }
-//     checkAnswer();
-// };
 
 
 ///myQuestions.forEach( function(question,) => {
