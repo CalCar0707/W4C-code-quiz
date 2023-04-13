@@ -80,11 +80,6 @@ function startQuiz(){
             clearInterval(timeInterval);
             //insert function here
 
-            timeEl.textContent = 'TIME\'S UP!!';
-            //insert high score option here
-            container.style.display = 'none';
-            scoreContainer.style.display = 'block';
-
         }
     }, 1000);
 }) 
@@ -109,7 +104,9 @@ function nextQuestion() {
 
     if(myQuestions.length > questionIndex){
         checkAnswer()
-    } ;
+    } else if (myQuestions.length === 0) {
+        gameOver();
+    }
 };
 
 //keyword this.target.texcontent !== correctanswer
@@ -147,25 +144,22 @@ function checkAnswer() {
 
       };
     };
- 
+
+function gameOver() {
+    if (secondsLeft === 0) {
+        timeEl.textContent = 'GAME OVER!!';
+            container.style.display = 'none';
+            highScore();
+    } 
+};
+
+function highScore() {
+    scoreContainer.style.display = 'block';
+    localStorage.setItem('user-score', JSON.stringify((score.value)));
+    localStorage.getItem('user-score');
+}
 
 
-
-///myQuestions.forEach( function(question,) => {
-    //if (answerOne.addEventListener('click'))
-
-//})
-
-// function gameOver() {
-//     if (secondsLeft === 0) {
-//         answerStatus.textContent = 'GAME OVER!'
-//     } else if ()
-// }
 
 
 startQuiz();
-
-// CREATE FUNCTIONS AND THEN ADD EVENT LISTENER
-// ANSWERoNE.ADDeVENT LISTENER('CLICK', fUNCTION());
-
-//seperate each question into function
