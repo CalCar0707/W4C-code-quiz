@@ -78,9 +78,9 @@ function startQuiz(){
         timeEl.textContent = 'Time: ' + secondsLeft;
         score.textContent = 'Score:' + score;
 
-        if (secondsLeft === 0) {
+        if (secondsLeft === 0 || myQuestions.length === 0) {
             clearInterval(timeInterval);
-            //insert function here
+            gameOver();
 
         }
     }, 1000);
