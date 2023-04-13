@@ -47,13 +47,13 @@ const myQuestions = [
     },
     {
         question: 'The condition of an if/ else statement is enclosed with _____.',
-        options: ['1. quotes', '2. curly brackets', '3. parentheses', '4. square brackets'],
-        answer: '2. curly brackets'
+        options: ['1. quotes', '2. parentheses', '3. curly brackets', '4. square brackets'],
+        answer: '3. curly brackets'
     },
     {
         question: 'The first index of an array is: ',
-        options: ['1. [0]', '2. [1]', '3. [2]', '4. [8]'],
-        answer: '1. [0]'
+        options: ['1. [2]', '2. [1]', '3. [0]', '4. [8]'],
+        answer: '3. [0]'
     },
     {
         question: 'How do you create a function?',
@@ -114,45 +114,38 @@ function nextQuestion() {
 
 //keyword this.target.texcontent !== correctanswer
 function checkAnswer() {
-    if (this.target.textContent === myQuestions[questionIndex].answer) {
-           score.textContent = score + 10;
-           nextQuestion();
-        } else if (this.target.textContent === myQuestions[questionIndex].answer) {
+
+       answerOne.onclick = () => {
+           var answerStatus = document.getElementById('answer-status');
+           answerStatus.textContent = 'Incorrect!';
            timeEl.textContent = secondsLeft -10;
            nextQuestion();
-        }
 
-    //   answerOne.onclick = () => {
-    //       var answerStatus = document.getElementById('answer-status');
-    //       answerStatus.textContent = 'Incorrect!';
-    //       timeEl.textContent = secondsLeft -10;
-    //       nextQuestion();
+       };
 
-    //   };
+       answerTwo.onclick = () => {
+           var answerStatus = document.getElementById('answer-status');
+           answerStatus.textContent = 'Incorrect!';
+           timeEl.textContent = secondsLeft -10;
+           nextQuestion();
 
-    //   answerTwo.onclick = () => {
-    //       var answerStatus = document.getElementById('answer-status');
-    //       answerStatus.textContent = 'Incorrect!';
-    //       timeEl.textContent = secondsLeft -10;
-    //       nextQuestion();
+       };
 
-    //   };
+       answerThree.onclick = () => {
+           var answerStatus = document.getElementById('answer-status');
+           answerStatus.textContent = 'Correct!';
+           score.textContent = score + 10;
+           nextQuestion();
 
-    //   answerThree.onclick = () => {
-    //       var answerStatus = document.getElementById('answer-status');
-    //       answerStatus.textContent = 'Correct!';
-    //       score.textContent = score + 10;
-    //       nextQuestion();
+       };
 
-    //   };
+       answerFour.onclick = () => {
+           var answerStatus = document.getElementById('answer-status');
+           answerStatus.textContent = 'Incorrect!';
+           timeEl.textContent = secondsLeft -10;
+           nextQuestion();
 
-    //   answerFour.onclick = () => {
-    //       var answerStatus = document.getElementById('answer-status');
-    //       answerStatus.textContent = 'Incorrect!';
-    //       timeEl.textContent = secondsLeft -10;
-    //       nextQuestion();
-
-    //  };
+      };
     };
  
 
