@@ -31,6 +31,7 @@ var submitBtn = document.getElementById('submit-hs');
 
 container.style.display = 'none';
 scoreContainer.style.display = 'none';
+score.style.display = 'none';
 
 var questionIndex = -1;
 //variables for question info
@@ -75,6 +76,7 @@ function startQuiz(){
     var timeInterval = window.setInterval( () => {
         secondsLeft--;
         timeEl.textContent = 'Time: ' + secondsLeft;
+        score.textContent = 'Score:' + score;
 
         if (secondsLeft === 0) {
             clearInterval(timeInterval);
