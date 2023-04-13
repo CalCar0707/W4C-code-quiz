@@ -113,7 +113,7 @@ function nextQuestion() {
 };
 
 //keyword this.target.texcontent !== correctanswer
-function checkAnswer(event) {
+function checkAnswer() {
     if (this.target.textContent === myQuestions[questionIndex].answer) {
            score.textContent = score + 10;
            nextQuestion();
