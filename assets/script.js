@@ -106,7 +106,7 @@ function nextQuestion() {
 
     if(myQuestions.length > questionIndex){
         checkAnswer()
-    } else if (myQuestions.length === 0) {
+    } else if (myQuestions.length === 0 || secondsLeft === 0) {
         gameOver();
     }
 };
